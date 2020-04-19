@@ -71,7 +71,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table CuestATS(
 id_CuestionarioATS varchar(200) not null,
-
+p1 varchar(4) not null,
 
 CONSTRAINT PK_idCuesATS PRIMARY KEY (id_CuestionarioATS))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
