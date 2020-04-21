@@ -1,8 +1,8 @@
 create database db_Cuestionarios;
 use db_Cuestionarios;
 
-create table Usuario(
-nombre_Usuario varchar(200) not null,eee 
+create table Trabajador(
+nombre_Usuario varchar(200) not null,
 password_Usuario varchar(300) not null,
 tipo_Usuario varchar(300) not null,
 nombres_Trabajador varchar(300) not null,
@@ -23,6 +23,7 @@ tipo_Contratacion varchar(200) not null,
 tipo_Personal varchar(200) not null,
 tipo_Jornada varchar(100) not null,
 rola_turnos varchar(100) not null,
+fecha_Registro datetime not null,
 CONSTRAINT PK_nomUsu PRIMARY KEY (nombre_Usuario))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -72,7 +73,25 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 create table CuestATS(
 id_CuestionarioATS varchar(200) not null,
 p1 varchar(4) not null,
-
+p2 varchar(4) not null,
+p3 varchar(4) not null,
+p4 varchar(4) not null,
+p5 varchar(4) not null,
+p6 varchar(4) not null,
+p7 varchar(4) not null,
+p8 varchar(4) not null,
+p9 varchar(4) not null,
+p10 varchar(4) not null,
+p11 varchar(4) not null,
+p12 varchar(4) not null,
+p13 varchar(4) not null,
+p14 varchar(4) not null,
+p15 varchar(4) not null,
+p16 varchar(4) not null,
+p17 varchar(4) not null,
+p18 varchar(4) not null,
+p19 varchar(4) not null,
+p20 varchar(4) not null,
 CONSTRAINT PK_idCuesATS PRIMARY KEY (id_CuestionarioATS))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -83,48 +102,74 @@ capacidad_Empresa bigint not null,
 CONSTRAINT PK_idEmpresa PRIMARY KEY (id_Empresa))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table FRP_USUA(
+create table FRP_TRAB(
 id_CuestionarioFRP1 varchar(200) not null,
 nombre_Usuario1 varchar(200) not null,
 fecha_AplicacionFRP datetime not null,
 CONSTRAINT FK_idCuestFRP1 FOREIGN KEY (id_CuestionarioFRP1) REFERENCES CuestFRP(id_CuestionarioFRP)on delete cascade,
-CONSTRAINT FK_nomUsu1 FOREIGN KEY (nombre_Usuario1) REFERENCES Usuario (nombre_Usuario)on delete cascade)
+CONSTRAINT FK_nomUsu1 FOREIGN KEY (nombre_Usuario1) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table FRPEO_USUA(
+create table FRPEO_TRAB(
 id_CuestionarioFRPEO1 varchar(200) not null,
 nombre_Usuario2 varchar(200) not null,
 fecha_AplicacionFRPEO datetime not null,
 CONSTRAINT FK_idCuestFRPEO1 FOREIGN KEY (id_CuestionarioFRPEO1) REFERENCES CuestFRPEO(id_CuestionarioFRPEO)on delete cascade,
-CONSTRAINT FK_nomUsu2 FOREIGN KEY (nombre_Usuario2) REFERENCES Usuario (nombre_Usuario)on delete cascade)
+CONSTRAINT FK_nomUsu2 FOREIGN KEY (nombre_Usuario2) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table ATS_USUA(
+create table ATS_TRAB(
 id_CuestionarioATS1 varchar(200) not null,
 nombre_Usuario3 varchar(200) not null,
 fecha_AplicacionATS datetime not null,
 CONSTRAINT FK_idCuestATS1 FOREIGN KEY (id_CuestionarioATS1) REFERENCES CuestATS(id_CuestionarioATS)on delete cascade,
-CONSTRAINT FK_nomUsu3 FOREIGN KEY (nombre_Usuario3) REFERENCES Usuario (nombre_Usuario)on delete cascade)
+CONSTRAINT FK_nomUsu3 FOREIGN KEY (nombre_Usuario3) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-create table EMPRESA_USU(
+create table EMPRESA_TRAB(
 id_Empresa1 varchar(200) not null,
 nombre_Usuario4 varchar(200) not null,
 CONSTRAINT FK_idEmpresa1 FOREIGN KEY (id_Empresa1) REFERENCES Empresa(id_Empresa)on delete cascade,
-CONSTRAINT FK_nomUsu4 FOREIGN KEY (nombre_Usuario4) REFERENCES Usuario (nombre_Usuario)on delete cascade)
+CONSTRAINT FK_nomUsu4 FOREIGN KEY (nombre_Usuario4) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- Tablas Históricas
 
+create table TrabajadorH(
+nombre_Usuario varchar(200) not null,
+password_Usuario varchar(300) not null,
+tipo_Usuario varchar(300) not null,
+nombres_Trabajador varchar(300) not null,
+apellidoPat_Trabajador varchar(300) not null,
+apellidoMat_Trabajador varchar(300) not null,
+genero_Usuario varchar(200)not null,
+estado_Civil varchar(100) not null,
+escolaridad varchar(200) not null,
+centro_Trabajo varchar(300) not null,
+depto_area varchar(300) not null,
+puesto_actividad varchar(300) not null,
+antiguedad_anios bigint not null,
+antiguedad_meses int not null,
+experiencia_anios bigint not null,
+experiencia_meses int not null,
+tipo_Puesto varchar(200) not null,
+tipo_Contratacion varchar(200) not null,
+tipo_Personal varchar(200) not null,
+tipo_Jornada varchar(100) not null,
+rola_turnos varchar(100) not null,
+CONSTRAINT PK_nomUsu PRIMARY KEY (nombre_Usuario))
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+create table EmpresaH(
+id_Empresa varchar(200) not null,
+nombre_Empresa varchar(500) not null,
+capacidad_Empresa bigint not null,
+CONSTRAINT PK_idEmpresa PRIMARY KEY (id_Empresa))
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-
-
-
-
-
-
-
-
-
+create table EMPRESA_TRABH(
+id_Empresa1 varchar(200) not null,
+nombre_Usuario4 varchar(200) not null,
+CONSTRAINT FK_idEmpresa1 FOREIGN KEY (id_Empresa1) REFERENCES EmpresaH (id_Empresa)on delete cascade,
+CONSTRAINT FK_nomUsu4 FOREIGN KEY (nombre_Usuario4) REFERENCES TrabajadorH (nombre_Usuario)on delete cascade)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
