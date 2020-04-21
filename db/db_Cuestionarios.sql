@@ -157,19 +157,20 @@ tipo_Contratacion varchar(200) not null,
 tipo_Personal varchar(200) not null,
 tipo_Jornada varchar(100) not null,
 rola_turnos varchar(100) not null,
-CONSTRAINT PK_nomUsu PRIMARY KEY (nombre_Usuario))
+fecha_Registro datetime not null,
+CONSTRAINT PK_nomUsuH PRIMARY KEY (nombre_Usuario))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table EmpresaH(
 id_Empresa varchar(200) not null,
 nombre_Empresa varchar(500) not null,
 capacidad_Empresa bigint not null,
-CONSTRAINT PK_idEmpresa PRIMARY KEY (id_Empresa))
+CONSTRAINT PK_idEmpresaH PRIMARY KEY (id_Empresa))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table EMPRESA_TRABH(
 id_Empresa1 varchar(200) not null,
 nombre_Usuario4 varchar(200) not null,
-CONSTRAINT FK_idEmpresa1 FOREIGN KEY (id_Empresa1) REFERENCES EmpresaH (id_Empresa)on delete cascade,
-CONSTRAINT FK_nomUsu4 FOREIGN KEY (nombre_Usuario4) REFERENCES TrabajadorH (nombre_Usuario)on delete cascade)
+CONSTRAINT FK_idEmpresaH1 FOREIGN KEY (id_Empresa1) REFERENCES EmpresaH (id_Empresa)on delete cascade,
+CONSTRAINT FK_nomUsuH4 FOREIGN KEY (nombre_Usuario4) REFERENCES TrabajadorH (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
