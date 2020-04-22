@@ -1,3 +1,5 @@
+
+
 <html>
 
 <head>
@@ -14,7 +16,7 @@
 
 <body>
 
-<h1>Bienvenido(a): <?php echo $user->getNombreyApellidoPatyMat(); ?>  Superuser</h1>
+<h1>Bienvenido(a): <?php echo $user->getNombreyApellidoPatyMat(); ?>  Tipo: Superuser</h1>
 
 <a href="Clases/logout.php"> cerrar sesión</a>
 

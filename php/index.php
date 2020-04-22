@@ -3,15 +3,18 @@
   include_once 'Clases/userVal.php';
   include_once 'Clases/user_session.php';
 
-
   $userSession = new UserSession();
   $user = new userVal();
 
 
   if(isset($_SESSION['user'])){
     //echo "hay sesion";
-    $user->setUser($userSession->getCurrentUser());
-    include_once 'Admin/home.php';
+    $user->setUser($userSession->getCurrentUser()); 
+    
+    if(){
+      
+    }
+    include_once 'Admin/home.php'; //error
 
      }else if(isset($_POST['txtUsuario']) && isset($_POST['txtPassword'])){
     
@@ -31,7 +34,7 @@
         $user->setUser($userForm);  
         include_once 'Admin/home.php';
 
-      }else if ($user->userExists($userForm, $passForm)== 2){
+      }else if ($user->userExists($userForm, $passForm)== 3){
         $userSession->setCurrentUser($userForm);
         $user->setUser($userForm);  
         include_once 'Usuario/home.php';
@@ -44,13 +47,6 @@
    }else{   
     include_once 'Login.php';
 }
-
-
-
-
-
-  
-
 
 
 ?>
