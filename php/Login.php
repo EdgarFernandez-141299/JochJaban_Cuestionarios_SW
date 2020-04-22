@@ -27,7 +27,7 @@
               <div class="form-group">
                 <input type="password" class="form-control" maxlength="40" id="txtPassword1" name="txtPassword" placeholder="Ingrese el password" required autofocus/>
                 <br>
-                <large id="mensajeError" style="color: rgb(187, 2, 2 )" class="form-text text-muted"><?php if(isset($errorLogin)){echo $errorLogin;}?></small>
+                <large id="mensajeError" style="color: rgb(187, 2, 2 )" class="form-text text-muted"><?php if(isset($errorLogin)){echo $errorLogin;}?> </large>
                 </div>
                <center><button type="submit" class ="btn btn-lg btn-info" style="width:200px; background-color: rgb(41, 152, 164)"> <i class="fas fa-sign-in-alt"> Iniciar Sesión</i> </button></center>
                <br>
@@ -41,11 +41,3 @@
   </center>
 </body>
 </html>
-   
-
-<?php 
-
-include_once 'Clases/database.php';
-
-
-?>

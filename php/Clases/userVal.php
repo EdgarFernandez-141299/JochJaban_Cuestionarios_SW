@@ -5,17 +5,45 @@ class userVal extends database{
   
     private $nombre;
     private $username;
+    private $apellidoPat;
+    private $apellidoMat;
 
 
     public function userExists($user, $pass){
         $query = $this->connect()->prepare('SELECT * FROM Trabajador WHERE nombre_Usuario = :user AND password_Usuario = :pass');
         $query->execute(['user' => $user, 'pass' => $pass]);
+        $tipoUsuario = 0;
 
-        if($query->rowCount()){
-            return true;
-        }else{
-            return false;
+        $row = $query->fetch(PDO::FETCH_NUM);
+
+        if($row == true){
+            $rol = $row[2];
+            
+            $_SESSION['user'] = $rol;
+
+            switch($rol){
+                case 'Superuser':
+                    $tipoUsuario=1;
+                    break;
+
+                case 'Admin':
+                    $tipoUsuario=2;
+                    break;
+
+                case 'Usuario':
+                    $tipoUsuario=3;
+                    break;
+    
+
+                default:
+                $tipoUsuario=0;
+                break;
+            }
+
         }
+
+        return $tipoUsuario;
+       
     }
 
     public function setUser($user){
@@ -25,11 +53,13 @@ class userVal extends database{
         foreach ($query as $currentUser) {
             $this->nombre = $currentUser['nombres_Trabajador'];
             $this->username = $currentUser['nombre_Usuario'];
+            $this->apellidoPat = $currentUser['apellidoPat_Trabajador'];
+            $this->apellidoMat = $currentUser['apellidoMat_Trabajador'];
         }
     }
 
-    public function getNombre(){
-        return $this->nombre;
+    public function getNombreyApellidoPatyMat(){
+        return $this->nombre.' '.$this->apellidoPat. ' '.$this->apellidoMat;
     }
 }
 

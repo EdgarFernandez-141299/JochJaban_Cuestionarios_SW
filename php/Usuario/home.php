@@ -14,7 +14,7 @@
 
 <body>
 
-<h1>Bienvenido(a): <?php echo $user->getNombre(); ?></h1>
+<h1>Bienvenido(a): <?php echo $user->getNombreyApellidoPatyMat(); ?>    Usuario</h1>
 
 <a href="Clases/logout.php"> cerrar sesión</a>
 

@@ -20,11 +20,21 @@
 
     $user = new userVal();
 
-    if($user->userExists($userForm, $passForm)){ 
+    if($user->userExists($userForm, $passForm)== 1){ 
         //Usuario Existente
         $userSession->setCurrentUser($userForm);
-        $user->setUser($userForm);
+        $user->setUser($userForm);  
+        include_once 'Superuser/home.php';
+
+      }else if($user->userExists($userForm, $passForm)== 2){
+        $userSession->setCurrentUser($userForm);
+        $user->setUser($userForm);  
         include_once 'Admin/home.php';
+
+      }else if ($user->userExists($userForm, $passForm)== 2){
+        $userSession->setCurrentUser($userForm);
+        $user->setUser($userForm);  
+        include_once 'Usuario/home.php';
 
       }else{
         //No existe el usuario
