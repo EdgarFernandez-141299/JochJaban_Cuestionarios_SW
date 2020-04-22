@@ -7,6 +7,8 @@ class userVal extends database{
     private $username;
     private $apellidoPat;
     private $apellidoMat;
+    private $tipoUser;
+    private $ban;
 
 
     public function userExists($user, $pass){
@@ -55,7 +57,10 @@ class userVal extends database{
             $this->username = $currentUser['nombre_Usuario'];
             $this->apellidoPat = $currentUser['apellidoPat_Trabajador'];
             $this->apellidoMat = $currentUser['apellidoMat_Trabajador'];
-        }
+            $ban = $this->tipoUser = $currentUser['tipo_Usuario'];                      
+           
+        }        
+        return $ban;
     }
 
     public function getNombreyApellidoPatyMat(){

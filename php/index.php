@@ -8,15 +8,19 @@
 
 
   if(isset($_SESSION['user'])){
-    //echo "hay sesion";
-    $user->setUser($userSession->getCurrentUser()); 
-    
-    if(){
-      
-    }
-    include_once 'Admin/home.php'; //error
 
-     }else if(isset($_POST['txtUsuario']) && isset($_POST['txtPassword'])){
+    // Sesión Iniciada
+    if($user->setUser($userSession->getCurrentUser())== 'Superuser'){
+      include_once 'Superuser/home.php';
+    }else if($user->setUser($userSession->getCurrentUser())== 'Admin'){
+      include_once 'Admin/home.php';
+    }else if($user->setUser($userSession->getCurrentUser())== 'Usuario'){
+      include_once 'Usuario/home.php';
+
+    }  
+    
+
+    }else if(isset($_POST['txtUsuario']) && isset($_POST['txtPassword'])){
     
     $userForm = $_POST['txtUsuario'];
     $passForm = $_POST['txtPassword'];   
@@ -24,6 +28,7 @@
     $user = new userVal();
 
     if($user->userExists($userForm, $passForm)== 1){ 
+
         //Usuario Existente
         $userSession->setCurrentUser($userForm);
         $user->setUser($userForm);  
