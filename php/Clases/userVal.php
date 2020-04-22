@@ -13,7 +13,7 @@ class userVal extends database{
 
 
     public function userExists($user, $pass){
-        $query = $this->connect()->prepare('SELECT * FROM Trabajador WHERE nombre_Usuario = :user AND password_Usuario = :pass');
+        $query = $this->connect()->prepare('SELECT nombre_Usuario, password_Usuario, tipo_Usuario, nombres_Trabajador, apellidoPat_Trabajador, apellidoMat_Trabajador FROM Trabajador WHERE nombre_Usuario = :user AND password_Usuario = :pass');
         $query->execute(['user' => $user, 'pass' => $pass]);
         $tipoUsuario = 0;
 
@@ -50,7 +50,7 @@ class userVal extends database{
     }
 
     public function setUser($user){
-        $query = $this->connect()->prepare('SELECT * FROM Trabajador WHERE nombre_Usuario = :user');
+        $query = $this->connect()->prepare('SELECT nombre_Usuario, password_Usuario, tipo_Usuario, nombres_Trabajador, apellidoPat_Trabajador, apellidoMat_Trabajador FROM Trabajador WHERE nombre_Usuario = :user');
         $query->execute(['user' => $user]);
         
         foreach ($query as $currentUser) {
