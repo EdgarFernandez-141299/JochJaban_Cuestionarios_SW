@@ -46,7 +46,7 @@
 
       }else{
         //No existe el usuario
-        $errorLogin = "Usuario y/o password incorrecto";
+        $errorLogin = "Usuario y/o Contraseña incorrecta";
         include_once 'Login.php';
     }
    }else{   
