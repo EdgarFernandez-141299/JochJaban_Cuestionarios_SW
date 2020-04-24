@@ -23,7 +23,7 @@ tipo_Contratacion varchar(200) not null,
 tipo_Personal varchar(200) not null,
 tipo_Jornada varchar(100) not null,
 rola_turnos varchar(100) not null,
-fecha_Registro datetime not null,
+fecha_yHoraRegistro datetime not null,
 CONSTRAINT PK_nomUsu PRIMARY KEY (nombre_Usuario))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -105,7 +105,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 create table FRP_TRAB(
 id_CuestionarioFRP1 varchar(200) not null,
 nombre_Usuario1 varchar(200) not null,
-fecha_AplicacionFRP datetime not null,
+fecha_yHoraAplicacionFRP datetime not null,
 CONSTRAINT FK_idCuestFRP1 FOREIGN KEY (id_CuestionarioFRP1) REFERENCES CuestFRP(id_CuestionarioFRP)on delete cascade,
 CONSTRAINT FK_nomUsu1 FOREIGN KEY (nombre_Usuario1) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -113,7 +113,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 create table FRPEO_TRAB(
 id_CuestionarioFRPEO1 varchar(200) not null,
 nombre_Usuario2 varchar(200) not null,
-fecha_AplicacionFRPEO datetime not null,
+fecha_yHoraAplicacionFRPEO datetime not null,
 CONSTRAINT FK_idCuestFRPEO1 FOREIGN KEY (id_CuestionarioFRPEO1) REFERENCES CuestFRPEO(id_CuestionarioFRPEO)on delete cascade,
 CONSTRAINT FK_nomUsu2 FOREIGN KEY (nombre_Usuario2) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -121,7 +121,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 create table ATS_TRAB(
 id_CuestionarioATS1 varchar(200) not null,
 nombre_Usuario3 varchar(200) not null,
-fecha_AplicacionATS datetime not null,
+fecha_yHoraAplicacionATS datetime not null,
 CONSTRAINT FK_idCuestATS1 FOREIGN KEY (id_CuestionarioATS1) REFERENCES CuestATS(id_CuestionarioATS)on delete cascade,
 CONSTRAINT FK_nomUsu3 FOREIGN KEY (nombre_Usuario3) REFERENCES Trabajador (nombre_Usuario)on delete cascade)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -157,7 +157,7 @@ tipo_Contratacion varchar(200) not null,
 tipo_Personal varchar(200) not null,
 tipo_Jornada varchar(100) not null,
 rola_turnos varchar(100) not null,
-fecha_Registro datetime not null,
+fecha_yHoraRegistro datetime not null,
 CONSTRAINT PK_nomUsuH PRIMARY KEY (nombre_Usuario))
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
