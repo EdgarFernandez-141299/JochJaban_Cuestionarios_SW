@@ -6,8 +6,7 @@
   $userSession = new UserSession();
   $user = new userVal();
 
-
-  if(isset($_SESSION['user'])){
+   if(isset($_SESSION['user'])){
 
     // Sesión Iniciada
     if($user->setUser($userSession->getCurrentUser())== 'Superuser'){
