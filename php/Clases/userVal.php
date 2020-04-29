@@ -25,7 +25,7 @@ class userVal extends database{
             $_SESSION['user'] = $rol;
 
             switch($rol){
-                case 'Superuser':
+                case 'Root':
                     $tipoUsuario=1;
                     break;
 

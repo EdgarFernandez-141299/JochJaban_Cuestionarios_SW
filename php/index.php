@@ -9,7 +9,7 @@
    if(isset($_SESSION['user'])){
 
     // Sesión Iniciada
-    if($user->setUser($userSession->getCurrentUser())== 'Superuser'){
+    if($user->setUser($userSession->getCurrentUser())== 'Root'){
       include_once 'Superuser/home.php';
     }else if($user->setUser($userSession->getCurrentUser())== 'Admin'){
       include_once 'Admin/home.php';
