@@ -31,7 +31,7 @@
                 </div>
                <center><button type="submit" class ="btn btn-lg btn-info" style="width:200px; background-color: rgb(41, 152, 164)"> <i class="fas fa-sign-in-alt"> Iniciar Sesión</i> </button></center>
                <br>
-               <label>¿Aún no tienes cuenta? <a href="https://es-la.facebook.com/">Registrate</a></label>
+               <label>¿Aún no tienes cuenta? <a href="RegistroUsuarios.php">Registrate</a></label>
             </form>          
         </div>
        </div>
