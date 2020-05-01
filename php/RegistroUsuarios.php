@@ -7,20 +7,28 @@
      <script src="https://kit.fontawesome.com/d73fdf4074.js" crossorigin="anonymous"></script>
      <script src="../js/jquery-3.5.0.min.js" type="text/javascript"></script>  
      <script>function regresar(){window.location="index.php";}</script> 
+     <script type="text/javascript">
+        function disableRegister() {
+              document.formReg.btnReg.disabled = !document.formReg.chkPol1.checked;
+        }
+     </script>
+
 </head>
 <body>
 <center>
-<div class="card text-white bg-info">
-   <div class="card-header">
-       <h3> Registro De Usuarios</h3>
+<div class="card text-black bg-info">
+   <div class="card-header" style="background-color: rgb(205, 208, 208)">
+   <img src="../images/iconoRegUsu.png" width="80" height="80">
+   <h5>Registro De Usuarios</h5>   
    </div>
 
-<div class="card-body">
+<div class="card-body"  style="background-color: rgb(205, 208, 208)">
 
 <!-- Datos Generales -->
+
 <h4 class="card-title" align = "left"> Datos Generales: </h4>
 <br>
-<form>
+<form method="POST" name="formReg">
 <div class="form-row">          
           
       <div class="form-group col-md-4">
@@ -101,12 +109,10 @@
 
         
         <div class="form-group col-md-12">
-         <label for="etiAnti">Antigüedad: </label>       
-        </div>
-
-        <div class="form-group col-md-6">
-        <label for="etiAniosAnt">Años: </label>
-        <select class="form-control" id="selAniosAnt">
+         <h5>Antigüedad: </h5> 
+         <br>  
+         <label for="etiAniosAnt">Años: </label>
+        <select class="form-control" id="selAniosAnt" style="width:150px">
             <option>Seleccionar...</option>
             <option>1</option>
             <option>2</option> 
@@ -128,13 +134,10 @@
             <option>18</option>      
             <option>19</option>      
             <option>20</option>    
-        </select>             
-        </div>
-
-
-        <div class="form-group col-md-6">
+        </select>  
+        <br>
         <label for="etiMesAnt">Meses: </label>
-        <select class="form-control" id="selMesAnt">
+        <select class="form-control" id="selMesAnt" style="width:150px">
             <option>Seleccionar...</option>
             <option>1</option>
             <option>2</option> 
@@ -147,17 +150,17 @@
             <option>9</option>
             <option>10</option>
             <option>11</option>
-        </select>             
+        </select> 
+        <br>                           
         </div>
+
 
 
         <div class="form-group col-md-12">
-         <label for="etiAnti">Experiencia Laboral: </label>       
-        </div>
-
-        <div class="form-group col-md-6">
-        <label for="etiAniosExp">Años: </label>
-        <select class="form-control" id="selAniosExp">
+         <h5>Experiencia Laboral: </h5> 
+         <br>   
+         <label for="etiAniosExp">Años: </label>
+         <select class="form-control" id="selAniosExp" style="width:150px">
             <option>Seleccionar...</option>
             <option>1</option>
             <option>2</option> 
@@ -179,13 +182,10 @@
             <option>18</option>      
             <option>19</option>      
             <option>20</option>    
-        </select>             
-        </div>
-
-
-        <div class="form-group col-md-6">
-        <label for="etiMesExp">Meses: </label>
-        <select class="form-control" id="selMesExp">
+        </select>
+        <br>
+            <label for="etiMesExp">Meses: </label>
+            <select class="form-control" id="selMesExp" style="width:150px">
             <option>Seleccionar...</option>
             <option>1</option>
             <option>2</option> 
@@ -198,11 +198,11 @@
             <option>9</option>
             <option>10</option>
             <option>11</option>
-        </select>             
+        </select>     
+        <br>        
         </div>
 
 
-        <br>
         <div class="form-group col-md-4">
         <label for="etiTipoPues">Tipo De Puesto: </label>
         <select class="form-control" id="selTipoPues">
@@ -215,9 +215,12 @@
         </select>             
         </div>
 
+     
 
+        <br>
+        <br>
         <div class="form-group col-md-4">
-        <label for="etiTipoCont">Tipo De Puesto: </label>
+        <label for="etiTipoCont">Tipo De Contratación: </label>
         <select class="form-control" id="selTipoCont">
             <option>Seleccionar...</option>
             <option>Por Obra o Proyecto</option>
@@ -242,25 +245,59 @@
 
         <div class="form-group col-md-6">
         <label for="etiTipoJorn">Tipo De Jornada: </label>
-        <select class="form-control" id="selTipoJorn">
+        <select class="form-control" id="selTipoJorn" style="width:300px">
             <option>Seleccionar...</option>
-            <option>Diurna(06:00-20:00 hrs.)</option>
-            <option>Nocturna(20:00-06:00 hrs.)</option> 
+            <option>Diurna (06:00-20:00 hrs.)</option>
+            <option>Nocturna (20:00-06:00 hrs.)</option> 
             <option>Mixta</option>    
         </select>             
         </div>
 
         <div class="form-group col-md-6">
         <label for="etiRolaTurn">¿Rola Turnos?</label>
-        <select class="form-control" id="selRolaTurn">
+        <select class="form-control" id="selRolaTurn" style="width:300px">
             <option>Seleccionar...</option>
             <option>Si</option>   
             <option>No</option>   
         </select>             
         </div>
+
+      
 </div> 
-          <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"> Registrar</i></button>
-          <button type="button" onClick="regresar()" class="btn btn-primary"><i class="fas fa-undo-alt"> Atras </i></button>
+
+
+<!-- Datos Del Usuario -->
+
+
+<br>
+<h4 class="card-title" align = "left"> Datos De Usuario: </h4>
+<br>
+
+
+<div class="form-row">    
+
+        <div class="form-group col-md-4"> 
+             <label for="etiNomUsu">Nombre De Usuario:</label>
+             <input type="text" class="form-control" id="txtNomUsu" placeholder="Use Mayusculas, Numeros y Caracteres Especiales " autofocus required/>
+        </div>
+
+        <div class="form-group col-md-4"> 
+             <label for="etiPass">Contraseña:</label>
+             <input type="password" class="form-control" id="txtPass" placeholder="Digite contraseña" autofocus required/>
+        </div>
+
+        <div class="form-group col-md-4"> 
+             <label for="etiPassConf">Confirme Su Contraseña:</label>
+             <input type="password" class="form-control" id="txtPassConf" placeholder="Confirme contraseña" autofocus required/>
+        </div>
+</div>
+           <br>
+           <input type="checkbox" class="form-check-input" name ="chkPol1" id="chkPol" onClick="disableRegister()">
+           <label class="form-check-label" for="chkPol"> Acepto Términos / Condiciones</label>
+           <br>
+           <br>
+          <button type="submit" class="btn btn-success" name="btnReg" disabled="true"><i class="fas fa-user-plus"> Registrar</i></button>
+          <button type="button" onClick="regresar()" class="btn btn-danger"><i class="fas fa-undo-alt"> Atras </i></button>
     </form>
    </div>
 </div>
