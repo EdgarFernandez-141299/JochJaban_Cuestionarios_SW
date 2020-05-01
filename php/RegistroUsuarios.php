@@ -108,7 +108,7 @@
         </div>
 
         
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
          <h5>Antigüedad: </h5> 
          <br>  
          <label for="etiAniosAnt">Años: </label>
@@ -156,7 +156,7 @@
 
 
 
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-6">
          <h5>Experiencia Laboral: </h5> 
          <br>   
          <label for="etiAniosExp">Años: </label>
